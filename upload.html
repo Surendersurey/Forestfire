@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Forest Fire Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #4A90E2, #00A8E8);
+        }
+        .container {
+            width: 80%;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            animation: fade-in 1s ease-out forwards;
+        }
+        @keyframes fade-in {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #444;
+        }
+        input[type="file"] {
+            margin-bottom: 15px;
+            display: block;
+            width: 100%;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-out;
+            width: 100%;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        p {
+            font-size: 18px;
+            text-align: center;
+            color: #444;
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+        }
+        li {
+            margin-bottom: 10px;
+            color: #444;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Forest Fire Detection</h1>
+        <form action="/" method="post" enctype="multipart/form-data">
+            <label for="file">Upload Forest Fire Image:</label>
+            <input type="file" name="file" id="file" accept=".jpg, .jpeg, .png" required>
+            <input type="submit" value="Submit">
+        </form>
+
+        {% if results %}
+        <p>Your health is important! Early detection can lead to better outcomes. Below is the prediction for the detected disease:</p>
+        <ul>
+            <li><span style="font-size: 25px;">Results:</span> {{ results['Pneumoniadetection'] }}</li>
+        </ul>
+        {% endif %}
+    </div>
+</body>
+</html>
